@@ -12,6 +12,41 @@
         <div class="col-6">
             <h3>Listagem de Clientes</h3>
             <br>
+        </div>
+        <div class="col-sm">
+            {% if user.is_authenticated %}
+                <p>Ola {{user.username}}
+                    <a href="{% url 'logout' %}">
+                       <span class="badge badge-dark">Sair</span>
+                    </a>
+                </p>
+            {% endif %}
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-12">
+            <form class="form-inline">
+                <div class="form-group mx-sm3 mb-2">
+                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite o nome">
+                </div>
+                <div class="form-group mx-sm3 mb-2">
+                    <input type="text" class="form-control" id="sobrenome" name="sobrenome" placeholder="Digite o Sobrenome">
+                    <label><input type="checkbox" name="meu-checkbox"> Consulta Ambas</label>
+                </div>
+                <button type="submit" class="btn btn-primary mb-2">Pesquisar</button>
+                <br>
+            </form>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col">
+
+        </div>
+        <div class="col-6">
+
             <ul class="list-group">
                 {% for person in persons %}
                     <li class="list-group-item">
@@ -27,14 +62,9 @@
             <a href="{% url 'person_new' %}" class="btn btn-primary">Novo Cliente</a>
         </div>
         <div class="col-sm">
-            {% if user.is_authenticated %}
-                <p>Ola {{user.username}}
-                    <a href="{% url 'logout' %}">
-                       <span class="badge badge-dark">Sair</span>
-                    </a>
-                </p>
-            {% endif %}
+
         </div>
+
     </div>
 
 {% endblock %}
